@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Styled Footer</title>
+  <link rel="stylesheet" href="styles11.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Your main content would go here -->
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h2><span style="color:#fff;">⧫</span> tyle</h2>
+        <p>Subscribe Easy Tutorials YouTube channel to watch more videos on website development and press the bell icon to get immediate notifications of latest videos.</p>
+      </div>
+
+      <div class="footer-section office">
+        <h3>Office</h3>
+        <p>ITR Road<br>Whitefield, Bangalore<br>Karnataka, PIN 560066, India</p>
+        <p>Email: avinashdm@outlook.com</p>
+        <p>Phone: +91 0123456789</p>
+      </div>
+
+      <div class="footer-section links">
+        <h3>Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section newsletter">
+        <h3>Newsletter</h3>
+        <form action="#">
+          <div class="email-box">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Enter your email id" required>
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </form>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Easy Tutorials © 2025 – All Rights Reserved
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+//Style
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f0f0;
+}
+
+.footer {
+  background: linear-gradient(to right, #1c1c3c, #3c1b2c);
+  color: #ddd;
+  padding: 40px 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+}
+
+.footer-section h2, .footer-section h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section a {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.email-box {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #666;
+  padding: 5px 0;
+}
+
+.email-box input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.email-box input:focus {
+  outline: none;
+}
+
+.email-box i {
+  margin: 0 10px;
+  color: #ccc;
+}
+
+.email-box button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ccc;
+  margin-right: 15px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 13px;
+  color: #aaa;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .email-box {
+    justify-content: center;
+  }
+
+  .footer-section h2, .footer-section h3 {
+    text-align: center;
+  }
+}
