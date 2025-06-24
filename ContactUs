@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="styles13.css" />
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+
+  <div class="contact-container">
+    <div class="form-section">
+      <h2>Get in touch</h2>
+      <form id="contactForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit →</button>
+      </form>
+      <p id="statusMessage"></p>
+    </div>
+    <div class="image-section">
+      <img src="https://icon-library.com/images/icon-contact-us/icon-contact-us-22.jpg" alt="Contact Illustration" />
+    </div>
+  </div>
+
+  <script src="script13.js"></script>
+</body>
+</html>
+
+
+//style
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #fceabb, #f8b500);
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.form-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.form-section h2 {
+  color: #6c3baa;
+  margin-bottom: 20px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+form button {
+  background: linear-gradient(to right, #fa709a, #fee140);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+#statusMessage {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.image-section img {
+  max-width: 300px;
+}
+
+//script
+
+
+// Initialize EmailJS (replace with your own user ID from emailjs.com)
+emailjs.init("YOUR_USER_ID");
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const status = document.getElementById("statusMessage");
+
+  // Basic Validation
+  if (!name || !email || !message) {
+    status.textContent = "Please fill out all fields.";
+    return;
+  }
+
+  if (!email.match(/^\S+@\S+\.\S+$/)) {
+    status.textContent = "Please enter a valid email address.";
+    return;
+  }
+
+  const templateParams = {
+    from_name: name,
+    from_email: email,
+    message: message
+  };
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+    .then(function() {
+      status.textContent = "Message sent successfully!";
+      document.getElementById("contactForm").reset();
+    }, function(error) {
+      console.log(error);
+      status.textContent = "Something went wrong. Please try again later.";
+    });
+});
